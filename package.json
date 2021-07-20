@@ -1,7 +1,14 @@
 {
-  "name": "mantine-next-example",
-  "version": "0.1.0",
-  "private": true,
+  "name": "approximate-computing-tool-web-app",
+  "version": "1.0.0",
+  "author": {
+    "name": "Okkar Min",
+    "email": "OMIN001@e.ntu.edu.sg",
+    "url": "https://okkarm.in"
+  },
+  "repository": {
+    "url": "https://github.com/OkkarMin/approximate-computing-tool"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
