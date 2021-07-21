@@ -1,17 +1,13 @@
-import { Button, TextInput } from "@mantine/core";
+import { Header } from "../components/header";
+import { ToolTabs } from "../components/tabs";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
-      <TextInput label="Hello" id="text-input" placeholder="Hello" />
-      <Button
-        component="a"
-        href="https://mantine.dev"
-        onClick={(event) => event.preventDefault()}
-        style={{ marginTop: 40 }}
-      >
-        Mantine
-      </Button>
+      <Header />
+      <ToolTabs />
     </>
   );
-}
+};
+
+export default Home;
