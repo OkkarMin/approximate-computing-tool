@@ -50,7 +50,9 @@ export const VerilogCodeGenerator = () => {
     };
 
     const response = await fetch(
-      `/api/${typeOfVerilogCode.toLocaleLowerCase().replace(" ", "-")}`,
+      `/api/verilog-generator/${typeOfVerilogCode
+        .toLocaleLowerCase()
+        .replace(" ", "-")}`,
       {
         method: "POST",
         headers: {
