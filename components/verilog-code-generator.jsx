@@ -136,9 +136,37 @@ export const VerilogCodeGenerator = () => {
     />
   );
 
+  const accurateInaccurateBitsNumberInput = () => (
+    <Group grow="true" style={{ marginTop: 10 }}>
+      <NumberInput
+        id="accurate-bits"
+        value={accurateBits}
+        onChange={(val) => setAccurateBits(val)}
+        min={1}
+        max={totalBits - 3}
+        type="number"
+        label="Accurate bits"
+        description="<= total_bits"
+        required
+      />
+      <NumberInput
+        id="inaccurate-bits"
+        value={inAccurateBits}
+        onChange={(val) => setInAccurateBits(val)}
+        min={3}
+        max={totalBits - 1}
+        type="number"
+        label="Inaccurate bits"
+        description="From 3 to total_bits-1, step is 1"
+        required
+      />
+    </Group>
+  );
+
   return (
     <Container style={{ marginTop: 10 }}>
       <Grid grow="true">
+        {/* Options Columns */}
         <Col span={3}>
           <RadioGroup
             variant="vertical"
@@ -161,7 +189,6 @@ export const VerilogCodeGenerator = () => {
 
           {/* Display corresponding NumberInput fields */}
           {typeOfVerilogCode != "ASIC Multiplier" && totalBitsNumberInput()}
-
           {typeOfVerilogCode == "ASIC Multiplier" && (
             <Group grow="true" style={{ marginTop: 10 }}>
               <NumberInput
@@ -203,32 +230,8 @@ export const VerilogCodeGenerator = () => {
           )}
 
           {hardwareModule != "Accurate Adder" &&
-            typeOfVerilogCode != "ASIC Multiplier" && (
-              <Group grow="true" style={{ marginTop: 10 }}>
-                <NumberInput
-                  id="accurate-bits"
-                  value={accurateBits}
-                  onChange={(val) => setAccurateBits(val)}
-                  min={1}
-                  max={totalBits - 3}
-                  type="number"
-                  label="Accurate bits"
-                  description="<= total_bits"
-                  required
-                />
-                <NumberInput
-                  id="inaccurate-bits"
-                  value={inAccurateBits}
-                  onChange={(val) => setInAccurateBits(val)}
-                  min={3}
-                  max={totalBits - 1}
-                  type="number"
-                  label="Inaccurate bits"
-                  description="From 3 to total_bits-1, step is 1"
-                  required
-                />
-              </Group>
-            )}
+            typeOfVerilogCode != "ASIC Multiplier" &&
+            accurateInaccurateBitsNumberInput()}
 
           <Button
             color="dark"
@@ -242,6 +245,7 @@ export const VerilogCodeGenerator = () => {
 
         <Divider orientation="vertical" />
 
+        {/* Verilog code column */}
         <Col span={6}>
           <LoadingOverlay visible={visible} loaderProps={{ color: "dark" }} />
           {verilogCode ? (
