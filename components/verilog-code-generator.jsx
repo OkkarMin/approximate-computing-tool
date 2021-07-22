@@ -28,7 +28,7 @@ export const VerilogCodeGenerator = () => {
 
   return (
     <Container style={{ marginTop: 10 }}>
-      <Grid grow>
+      <Grid grow="true">
         <Col span={3}>
           <RadioGroup
             variant="vertical"
@@ -55,6 +55,7 @@ export const VerilogCodeGenerator = () => {
           </RadioGroup>
 
           <NumberInput
+            id="total-bits" // see https://mantine.dev/core/number-input/#server-side-rendering
             defaultValue={4}
             placeholder="[4, 32]"
             min={4}
@@ -66,8 +67,9 @@ export const VerilogCodeGenerator = () => {
             style={{ marginTop: 20 }}
           />
 
-          <Group grow style={{ marginTop: 10 }}>
+          <Group grow="true" style={{ marginTop: 10 }}>
             <NumberInput
+              id="accurate-bits"
               defaultValue={4}
               min={4}
               max={32}
@@ -77,6 +79,7 @@ export const VerilogCodeGenerator = () => {
               required
             />
             <NumberInput
+              id="inaccurate-bits"
               defaultValue={4}
               min={4}
               max={32}
