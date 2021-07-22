@@ -15,13 +15,6 @@ import {
   Text,
 } from "@mantine/core";
 
-const demoCode = `import React from 'react';
-import { Button } from '@mantine/core';
-
-function Demo() {
-  return <Button>Hello</Button>
-}`;
-
 export const VerilogCodeGenerator = () => {
   const [typeOfVerilogCode, setTypeOfVerilogCode] = useState("ASIC Adder");
   const [totalBits, setTotalBits] = useState(4);
@@ -34,7 +27,7 @@ export const VerilogCodeGenerator = () => {
   const [visible, setVisible] = useState(false);
   const [verilogCode, setVerilogCode] = useState("");
 
-  // Helper useEffect to set constraints for the NumberInputs
+  // Helper useEffect to set constraints for accurate and inaccurate bits
   useEffect(() => {
     setInAccurateBits(totalBits - accurateBits);
   }, [accurateBits]);
@@ -126,6 +119,23 @@ export const VerilogCodeGenerator = () => {
     </RadioGroup>
   );
 
+  // Helper functions to display the correct bits NumberInputs fields
+  const totalBitsNumberInput = () => (
+    <NumberInput
+      id="total-bits" // see https://mantine.dev/core/number-input/#server-side-rendering
+      value={totalBits}
+      onChange={(val) => setTotalBits(val)}
+      placeholder="[4, 32]"
+      min={4}
+      max={32}
+      type="number"
+      label="Total bits"
+      description="From 4 to 32, step is 1"
+      required
+      style={{ marginTop: 20 }}
+    />
+  );
+
   return (
     <Container style={{ marginTop: 10 }}>
       <Grid grow="true">
@@ -149,21 +159,8 @@ export const VerilogCodeGenerator = () => {
             asicMultiplierHardwareOptions()}
           {typeOfVerilogCode == "FPGA Adder" && fpgaAdderHardwareOptions()}
 
-          {typeOfVerilogCode != "ASIC Multiplier" && (
-            <NumberInput
-              id="total-bits" // see https://mantine.dev/core/number-input/#server-side-rendering
-              value={totalBits}
-              onChange={(val) => setTotalBits(val)}
-              placeholder="[4, 32]"
-              min={4}
-              max={32}
-              type="number"
-              label="Total bits"
-              description="From 4 to 32, step is 1"
-              required
-              style={{ marginTop: 20 }}
-            />
-          )}
+          {/* Display corresponding NumberInput fields */}
+          {typeOfVerilogCode != "ASIC Multiplier" && totalBitsNumberInput()}
 
           {typeOfVerilogCode == "ASIC Multiplier" && (
             <Group grow="true" style={{ marginTop: 10 }}>
