@@ -52,7 +52,9 @@ export const ErrorAnalysis = () => {
     };
 
     const response = await fetch(
-      `/api/${typeOfErrorAnalysis.toLocaleLowerCase().replace(" ", "-")}`,
+      `/api/error-analysis/${typeOfErrorAnalysis
+        .toLocaleLowerCase()
+        .replaceAll(" ", "-")}`,
       {
         method: "POST",
         headers: {
@@ -158,9 +160,9 @@ export const ErrorAnalysis = () => {
               label="Type Hardware Module"
               color="dark"
               required
-              onChange={hardwareModule}
+              onChange={setHardwareModule}
               defaultValue="MxN PAAM01 with V-Cut"
-              value={setHardwareModule}
+              value={hardwareModule}
               style={{ marginTop: 20 }}
             >
               <Radio value="MxN PAAM01 with V-Cut">MxN PAAM01 with V-Cut</Radio>
@@ -182,7 +184,7 @@ export const ErrorAnalysis = () => {
                 min={3}
                 max={32}
                 type="number"
-                label="Multiplicand bits (N)"
+                label="Multiplicand bits (M)"
                 description="From 3 to 32, step is 1"
                 required
               />
@@ -193,7 +195,7 @@ export const ErrorAnalysis = () => {
                 min={3}
                 max={32}
                 type="number"
-                label="Multiplier bits (M)"
+                label="Multiplier bits (N)"
                 description="From 3 to 32, step is 1"
                 required
               />

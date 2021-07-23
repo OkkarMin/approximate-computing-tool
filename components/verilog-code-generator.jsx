@@ -200,7 +200,7 @@ export const VerilogCodeGenerator = () => {
                 min={3}
                 max={32}
                 type="number"
-                label="Multiplicand bits (N)"
+                label="Multiplicand bits (M)"
                 description="From 3 to 32, step is 1"
                 required
               />
@@ -211,7 +211,7 @@ export const VerilogCodeGenerator = () => {
                 min={3}
                 max={32}
                 type="number"
-                label="Multiplier bits (M)"
+                label="Multiplier bits (N)"
                 description="From 3 to 32, step is 1"
                 required
               />

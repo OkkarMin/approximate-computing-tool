@@ -20,7 +20,7 @@ def generate_verilog_code(
     Args:
         type_of_hardware_module (str): The type of hardware module.
         total_bits (int): The total number of bits.
-        inacc_bits (int): The number of inaccurate bits that are not used.
+        inacc_bits (int): The number of inaccurate bits.
 
     Returns:
         str: Generated verilog code.
