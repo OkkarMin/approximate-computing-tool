@@ -59,7 +59,7 @@ class handler(BaseHTTPRequestHandler):
         response = (
             f'{req_body_dict["type_of_hardware_module"]} with M:{multiplicand_bits}, N:{multiplier_bits}, v:{v_cut}\n\n'
             f"Average Error: {average_error}\n"
-            f"Mean Average Error: {mean_average_error}\n"
+            f"Mean Absolute Error: {mean_average_error}\n"
             f"RootMeanSquareError: {root_mean_square_error}\n"
         )
 
