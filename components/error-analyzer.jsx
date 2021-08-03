@@ -15,7 +15,7 @@ import {
   Text,
 } from "@mantine/core";
 
-export const ErrorAnalysis = () => {
+export const ErrorAnalyzer = () => {
   const [typeOfErrorAnalysis, setTypeOfErrorAnalysis] = useState(
     "Adder Error Analysis"
   );

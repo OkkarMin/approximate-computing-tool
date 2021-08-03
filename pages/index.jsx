@@ -1,5 +1,5 @@
 import { Header } from "../components/header";
-import { ToolTabs } from "../components/tabs";
+import { ToolTabs } from "../components/tool-tabs";
 
 const Home = () => {
   return (
