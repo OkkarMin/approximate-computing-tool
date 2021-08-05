@@ -2,6 +2,7 @@ import { Container, Tab, Tabs } from "@mantine/core";
 
 import { VerilogCodeGenerator } from "./verilog-code-generator";
 import { ErrorAnalyzer } from "./error-analyzer";
+import { AccuracyAnalyzer } from "./accuracy-analyzer";
 
 export const ToolTabs = () => {
   return (
@@ -15,7 +16,9 @@ export const ToolTabs = () => {
           <ErrorAnalyzer />
         </Tab>
 
-        <Tab label="Accuracy Analyzer">Accuracy Analyzer</Tab>
+        <Tab label="Accuracy Analyzer">
+          <AccuracyAnalyzer />
+        </Tab>
       </Tabs>
     </Container>
   );
