@@ -50,8 +50,12 @@ export const AccuracyAnalyzer = () => {
       type_of_hardware_module: hardwareModule,
       total_bits: totalBits,
       inacc_bits: inAccurateBits,
+      adder_first_unsigned_number: firstNumber,
+      adder_second_unsigned_number: secondNumber,
       multiplicand_bits: multiplicandBits,
       multiplier_bits: multiplierBits,
+      multiplier_first_unsigned_number: firstNumberMultiply,
+      multiplier_second_unsigned_number: secondNumberMultiply,
       v_cut: vCut,
     };
 
@@ -255,7 +259,7 @@ export const AccuracyAnalyzer = () => {
                 max={2 ** totalBits - 1}
                 type="number"
                 label="First number to be multiplied (unsigned)"
-                description="From 0 to (2^total_bits) - 1, step is 1"
+                description="From 0 to (2^multiplicand_bits) - 1, step is 1"
                 required
               />
 
@@ -267,7 +271,7 @@ export const AccuracyAnalyzer = () => {
                 max={2 ** totalBits - 1}
                 type="number"
                 label="Second number to be multiplied (unsigned)"
-                description="From 0 to (2^total_bits) - 1, step is 1"
+                description="From 0 to (2^multiplier_bits) - 1, step is 1"
                 required
               />
             </Group>
