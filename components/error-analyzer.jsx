@@ -38,6 +38,10 @@ export const ErrorAnalyzer = () => {
     setAccurateBits(totalBits - inAccurateBits);
   }, [inAccurateBits]);
 
+  useEffect(() => {
+    setAccurateBits(totalBits - inAccurateBits);
+  }, [totalBits]);
+
   // On 'Analyse' button click, calls API to get the result of the error analysis
   const handleAnalyseButtonClick = async () => {
     setVisible((v) => !v);

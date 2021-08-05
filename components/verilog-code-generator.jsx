@@ -36,6 +36,10 @@ export const VerilogCodeGenerator = () => {
     setAccurateBits(totalBits - inAccurateBits);
   }, [inAccurateBits]);
 
+  useEffect(() => {
+    setAccurateBits(totalBits - inAccurateBits);
+  }, [totalBits]);
+
   // Calls API to get Verilog code
   const handleGenerateButtonClick = async () => {
     setVisible((v) => !v);
