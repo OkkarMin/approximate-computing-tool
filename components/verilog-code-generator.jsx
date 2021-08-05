@@ -121,7 +121,7 @@ export const VerilogCodeGenerator = () => {
       <Radio value="HEAA">HEAA</Radio>
       <Radio value="HOERAA">HOERAA</Radio>
       <Radio value="HOAANED">HOAANED</Radio>
-      <Radio value="M-HERLOA">M-HERLOA</Radio>
+      {/* <Radio value="M-HERLOA">M-HERLOA</Radio> */}
     </RadioGroup>
   );
 
